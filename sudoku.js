@@ -1,6 +1,6 @@
 //Sudoku Game
 
-
+//Validator
 function sudokuValidator(board){
 	// to take copy of array so sorting the array doesnt affect the original array
   var boardCopy=board.map(function(arr) {
