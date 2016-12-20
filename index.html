@@ -3,14 +3,106 @@
   <head>
     <title>Legendary Sudoku!</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="sudoku.js"></script>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="underscore-min.js"></script>
     </head>
+<body>
+<div class="row">
+<nav class="navbar navbar-default" style="
+    margin-bottom: 0;
+    padding-left: 30px;
+">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="
+    color: #c30f0b;
+">Legendary Sudoku</a>
+    </div>
 
-    <body>
-    	
-    </body>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Rules<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+          
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://www.rbk.org">RBK</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="main-intro" style="
+    height: 330px;
+    background: rgb(195, 15, 11); background-image: url('num-bg.png');"><div class="col-md-10 col-md-offset-1 text-center" style="
+    margin-top: 20px;
+    color: #ffffff;
+"><h2 style="
+    font-family: sans-serif;
+">Welcome to our legendary sudoku game!</h2><h2 style="
+    font-family: sans-serif;
+">Rules:</h2>
+  <div class="col-md-3"><i class="glyphicon glyphicon-arrow-right" style="
+    border: 2px solid #fff;
+    border-radius: 60px;
+    font-size: 60px;
+    padding: 25px;
+    margin-bottom: 20px;
+"></i><br><span style="
+">No duplicate numbers in each row</span></div>
+<div class="col-md-3"><i class="glyphicon glyphicon-arrow-down" style="
+    border: 2px solid #fff;
+    border-radius: 60px;
+    font-size: 60px;
+    padding: 25px;
+    margin-bottom: 20px;
+"></i><br><span style="
+">No duplicate numbers in each column</span></div><div class="col-md-3"><i class="glyphicon glyphicon-th" style="
+    border: 2px solid #fff;
+    border-radius: 60px;
+    font-size: 60px;
+    padding: 25px;
+    margin-bottom: 20px;
+"></i><br><span style="
+">Each 3x3 region should be unique from other regions</span></div><div class="col-md-3"><i class="glyphicon glyphicon-heart" style="
+    border: 2px solid #fff;
+    border-radius: 60px;
+    font-size: 60px;
+    padding: 25px;
+    margin-bottom: 20px;
+"></i><br><span style="
+">HAVE FUN!</span></div></div></div></div>
+</body>
 </html>
    
