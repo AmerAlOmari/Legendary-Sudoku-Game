@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Legendary Sudoku!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="sudoku.js"></script>
@@ -9,6 +10,7 @@
     <script type="text/javascript" src="underscore-min.js"></script>
     </head>
 <body>
+<div class="container-fluid">
 <div class="row">
 <nav class="navbar navbar-default" style="
     margin-bottom: 0;
@@ -63,46 +65,79 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="main-intro" style="
-    height: 330px;
-    background: rgb(195, 15, 11); background-image: url('num-bg.png');"><div class="col-md-10 col-md-offset-1 text-center" style="
-    margin-top: 20px;
-    color: #ffffff;
-"><h2 style="
-    font-family: sans-serif;
-">Welcome to our legendary sudoku game!</h2><h2 style="
-    font-family: sans-serif;
-">Rules:</h2>
-  <div class="col-md-3"><i class="glyphicon glyphicon-arrow-right" style="
-    border: 2px solid #fff;
-    border-radius: 60px;
-    font-size: 60px;
-    padding: 25px;
-    margin-bottom: 20px;
-"></i><br><span style="
-">No duplicate numbers in each row</span></div>
-<div class="col-md-3"><i class="glyphicon glyphicon-arrow-down" style="
-    border: 2px solid #fff;
-    border-radius: 60px;
-    font-size: 60px;
-    padding: 25px;
-    margin-bottom: 20px;
-"></i><br><span style="
-">No duplicate numbers in each column</span></div><div class="col-md-3"><i class="glyphicon glyphicon-th" style="
-    border: 2px solid #fff;
-    border-radius: 60px;
-    font-size: 60px;
-    padding: 25px;
-    margin-bottom: 20px;
-"></i><br><span style="
-">Each 3x3 region should be unique from other regions</span></div><div class="col-md-3"><i class="glyphicon glyphicon-heart" style="
-    border: 2px solid #fff;
-    border-radius: 60px;
-    font-size: 60px;
-    padding: 25px;
-    margin-bottom: 20px;
-"></i><br><span style="
-">HAVE FUN!</span></div></div></div></div>
+<div class="main-intro"><div class="col-md-10 col-md-offset-1 text-center rulesContainer">
+<h2>Welcome to our legendary sudoku game!</h2>
+<h2>Rules:</h2>
+  <div class="col-md-3">
+  <i class="glyphicon glyphicon-arrow-right ruleIcon"></i>
+  <br>
+  <span style="">No duplicate numbers in each row</span>
+</div>
+<div class="col-md-3">
+<i class="glyphicon glyphicon-arrow-down ruleIcon"></i>
+<br>
+<span>No duplicate numbers in each column</span></div><div class="col-md-3"><i class="glyphicon glyphicon-th ruleIcon"></i>
+<br>
+<span>Each 3x3 region should be unique from other regions</span>
+</div>
+<div class="col-md-3">
+<i class="glyphicon glyphicon-heart ruleIcon"></i>
+<br>
+<span style="
+">HAVE FUN!</span>
+</div>
+</div></div></div>
+<div id="welcome" class="row" style="display: none;">
+
+</div>
+
+<div id="playing" class="row">
+<div class="col-md-10 col-md-offset-1 text-center">
+<h1 id="playingTitle">Lets Start! game level : <span class="label label-primary">1</span></h1>
+<div id="playingAlert" class="alert alert-success" style="display:none"></div>
+</div>
+<div id="input-container" class="col-md-10 col-md-offset-1 text-center">
+    </div> 
+    <br>
+    <div class="col-md-10 col-md-offset-1 text-center"><button onclick="parseInput()">submit</button></div>
+</div>
+
+
+
+</div>
+<script type="text/javascript">
+    // to make the inputs grid
+    var container=$('#input-container');
+    for(var i=0; i<81;i++){
+        if(i%9 === 0){
+            container.append('<br>');
+        }
+        container.append('<input id="'+ i +'" class="form-control inputSquares" maxlength="1" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57">');
+
+    }
+    //to fill dump data
+    var inputArr=$('#input-container input');
+    for(var i=0; i<81;i++){
+        inputArr[i].value=1;
+    }
+
+    //to parse inputs values when a button clicked
+    function parseInput(){
+        var inputArr=$('#input-container input');
+        var tempArr=[];
+        var resultArr=[];
+        for(var i=0; i<inputArr.length; i++){
+            if(tempArr.length === 9){
+                resultArr.push(tempArr);
+                tempArr=[];
+            }
+            tempArr.push(inputArr[i].value);
+        }
+         $('#input-container').append(resultArr);
+    }
+
+
+</script>
 </body>
 </html>
    

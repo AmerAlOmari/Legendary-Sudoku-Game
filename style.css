@@ -1,1 +1,31 @@
-//
+//sudoku
+body {
+	font-family: sans-serif;
+}
+.inputSquares{
+	display: inline-block !important;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 0px !important;
+    padding: 6px 16px !important;
+    font-weight: bold;
+    font-size: 14pt !important;
+}
+
+.ruleIcon{
+    border: 2px solid #fff;
+    border-radius: 60px;
+    font-size: 60px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.main-intro{
+	height: 330px;
+    background: rgb(195, 15, 11); background-image: url('num-bg.png');
+}
+
+.rulesContainer{
+	margin-top: 20px;
+    color: #ffffff;
+}
