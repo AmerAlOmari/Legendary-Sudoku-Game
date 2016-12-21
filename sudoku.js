@@ -17,7 +17,7 @@ function sudokuValidator(board){
   	return true;
   }).length === board.length;
   //checking columns and regions
-  return checkColumns(boardCopy) && regions3x3(boardCopy) && checkRows ? "Finished!" : "Try again!"
+  return checkColumns(boardCopy) && regions3x3(boardCopy) && checkRows 
 }
 
 function regions3x3(arr){
