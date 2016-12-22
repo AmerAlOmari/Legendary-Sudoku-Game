@@ -21,11 +21,11 @@ body {
 }
 
 .main-intro{
-	height: 330px;
+	height: 350px;
     background: rgb(195, 15, 11); background-image: url('num-bg.png');
 }
 
 .rulesContainer{
 	margin-top: 20px;
-    color: #ffffff;
+    color: #dbdbdb;
 }

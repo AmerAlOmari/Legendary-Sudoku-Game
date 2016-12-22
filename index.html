@@ -6,13 +6,13 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <link rel="icon" type="image/gif" href="http://i.imgur.com/J4BI0dE.gif"/>
-    <script type="text/javascript" src="sudoku.js"></script>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="underscore-min.js"></script>
     </head>
 <body>
 <div class="container-fluid">
 <div class="row">
+
 <nav class="navbar navbar-default" style="
     margin-bottom: 0;
     padding-left: 30px;
@@ -34,32 +34,18 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Rules<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">About</a></li>
-        <li class="dropdown">
-          
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+        <li class="active"><a href="https://en.wikipedia.org/wiki/Sudoku" target="_blank">How to play<span class="sr-only">(current)</span></a></li>
+        <li><a href="about.html">About us</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://www.rbk.org">RBK</a></li>
+        <li><a href="http://www.rbk.org" target = "_blank">RBK</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="https://github.com/montaserRahmani">M. Rahmani</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="https://github.com/AmerAlOmari">A. AlOmari</a></li>
           </ul>
         </li>
       </ul>
@@ -67,17 +53,20 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="main-intro"><div class="col-md-10 col-md-offset-1 text-center rulesContainer">
-<h2>Welcome to our legendary sudoku game!</h2>
+<h1 style="
+    font-weight: bold;
+    color: #fff;
+">Welcome to our legendary sudoku game!</h1>
 <h2>Rules:</h2>
   <div class="col-md-3">
   <i class="glyphicon glyphicon-arrow-right ruleIcon"></i>
   <br>
-  <span style="">No duplicate numbers in each row</span>
+  <span style="">No duplicate numbers in each row by using only 1 to 9 numbers</span>
 </div>
 <div class="col-md-3">
 <i class="glyphicon glyphicon-arrow-down ruleIcon"></i>
 <br>
-<span>No duplicate numbers in each column</span></div><div class="col-md-3"><i class="glyphicon glyphicon-th ruleIcon"></i>
+<span>No duplicate numbers in each column by using only 1 to 9 numbers</span></div><div class="col-md-3"><i class="glyphicon glyphicon-th ruleIcon"></i>
 <br>
 <span>Each 3x3 region should be unique from other regions</span>
 </div>
@@ -87,7 +76,9 @@
 <span style="
 ">HAVE FUN!</span>
 </div>
-</div></div></div>
+</div></div>
+
+
 
 <div id="welcome" class="row">
 <div class="col-md-12 text-center" style="background-color: #393939;color: #ffffff;padding: 25px;">
@@ -96,7 +87,9 @@
     padding: 20px;
 "></i>Hi There! lets start by typing your name</h1>
   <h3>It's ok if you dont want to write, we will still call you LEGEND!</h3> 
+
 <input id="nameInput" class="form-control" maxlength="25" placeholder="Enter an awesome name!" style="width:50%;height:40px;margin:auto;margin-top: 30px;margin-bottom: 25px;">
+
 <h3>Now select a level</h3>
 <div class="col-md-12" style="margin-bottom: 30px">
 <!-- Newbie!<input type="radio"  name="level" value=1 class="btn-primary"/>
@@ -109,7 +102,9 @@ Legendary!<input type="radio"  name="level" value=3 class="btn-dangerous"/> -->
 </div>
 </div>
 
-<button class="btn btn-primary btn-lg" onclick="startGame()">Rock 'n roll</button>
+<button class="btn btn-primary btn-lg" onclick="startGame()" style="
+    width: 325px;
+">Rock 'n roll</button>
 </div>
 </div>
 
@@ -118,11 +113,18 @@ Legendary!<input type="radio"  name="level" value=3 class="btn-dangerous"/> -->
 
 <div id="playing" class="row" style="display:none">
 <div class="col-md-12 text-center" style="background-color: #393939;color: #ffffff;padding: 25px;">
+
 <h1><i class="glyphicon glyphicon-thumbs-up ruleIcon" style="
     margin-right: 25px;
     padding: 20px;
 "></i><span id="nameTitle" style="color: yellow;font-size: 1.3em;"></span>Lets Start! Game Level : <span id="levelLabel" class="label label-primary">1</span></h1>
-<div id="playingAlert" class="alert alert-success" style="display:none"></div>
+</div>
+
+<div class="col-md-8 col-md-offset-2 text-center">
+<div id="playingAlert" class="alert alert-danger"  style="margin-top: 25px; font-size:13pt; display: none;">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span id="alertMsg">test</span>
+</div>
 </div>
 
 <div id="input-container" class="col-md-10 col-md-offset-1 text-center">
@@ -136,22 +138,32 @@ Legendary!<input type="radio"  name="level" value=3 class="btn-dangerous"/> -->
     ">
   
 <h1><span id="nameTitle2" style="color: yellow;font-size: 1.3em;"></span>Are you ready?</h1><button class="btn btn-danger btn-lg" onclick="parseInput()">HOOOOOOOOOOOAH!</button>
-<button class="btn btn-danger btn-lg" onclick="fillSol()">fill dumpshit!</button>
+<audio id="loserSound" src="loser.mp3" style="display: none"></audio>
+<button class="btn btn-danger btn-lg" onclick="fillSol()">Give Up!</button>
 </div>
 </div>
 
+
+
 <div class = "row" id = "finish" style="display: none;"> 
+<audio id="winnerSound" src="pirate.mp3" style="display: none"></audio>
 <div class="col-md-12 text-center" style="background-color: #000000;color: #ffffff;padding: 25px;">
 <h1 style="
     font-size: 80px;
     color: red;
 ">HORAAAAAAAAY!</h1><h1>YOU NAILED IT!   <span id="successTitle" style="color: red;font-size: 1.8em;font-weight: bold;">Pirate!</span></h1>
-<div id="playingAlert" class="alert alert-success" style="display:none"></div>
  <img src="https://slack-imgs.com/?c=1&amp;url=http%3A%2F%2Fdata.whicdn.com%2Fimages%2F30405513%2Flarge.gif" style="
     margin: 50px;
     height: auto;
     width: 700px;
 ">
+<button class="btn btn-danger btn-lg" onclick="newGame()" style="
+    display: block;
+    width: 500px;
+    height: 70px;
+    font-size: 1.9em;
+    margin: auto;
+">Up for another challenge ?</button>
 </div>
  </div>
 
@@ -159,98 +171,8 @@ Legendary!<input type="radio"  name="level" value=3 class="btn-dangerous"/> -->
 
 
 </div>
-<script type="text/javascript">
-    //Examples 
-    var easy = [0, 0, 0, 2, 6, 0, 7, 0, 1, 6, 8, 0, 0, 7, 0, 0, 9, 0, 1, 9, 0, 0, 0, 4, 5, 0, 0, 8, 2, 0, 1, 0, 0, 0, 4, 0, 0, 0, 4, 6, 0, 2, 9, 0, 0, 0, 5, 0, 0, 0, 3, 0, 2, 8, 0, 0, 9, 3, 0, 0, 0, 7, 4, 0, 4, 0, 0, 5, 0, 0, 3, 6, 7, 0, 3, 0, 1, 8, 0, 0, 0];
-
-var easySolved = [4, 3, 5, 2, 6, 9, 7, 8, 1, 6, 8, 2, 5, 7, 1, 4, 9, 3, 1, 9, 7, 8, 3, 4, 5, 6, 2, 8, 2, 6, 1, 9, 5, 3, 4, 7, 3, 7, 4, 6, 8, 2, 9, 1, 5, 9, 5, 1, 7, 4, 3, 6, 2, 8, 5, 1, 9, 3, 2, 6, 8, 7, 4, 2, 4, 8, 9, 5, 7, 1, 3, 6, 7, 6, 3, 4, 1, 8, 2, 5, 9];
-
-
-var intermediate = [0, 2, 0, 6, 0, 8, 0, 0, 0, 5, 8, 0, 0, 0, 9, 7, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 3, 7, 0, 0, 0, 0, 5, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 8, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 3, 6, 0, 0, 0, 3, 0, 6, 0, 9, 0];
-
-var intermediateSolved = [1, 2, 3, 6, 7, 8, 9, 4, 5, 5, 8, 4, 2, 3, 9, 7, 6, 1, 9, 6, 7, 1, 4, 5, 3, 2, 8, 3, 7, 2, 4, 6, 1, 5, 8, 9, 6, 9, 1, 5, 8, 3, 2, 7, 4, 4, 5, 8, 7, 9, 2, 6, 1, 3, 8, 3, 6, 9, 2, 4, 1, 5, 7, 2, 1, 9, 8, 5, 7, 4, 3, 6, 7, 4, 5, 3, 1, 6, 8, 9, 2];
-
-
-var difficult = [0, 0, 0, 6, 0, 0, 4, 0, 0, 7, 0, 0, 0, 0, 3, 6, 0, 0, 0, 0, 0, 0, 9, 1, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1, 8, 0, 0, 0, 3, 0, 0, 0, 3, 0, 6, 0, 4, 5, 0, 4, 0, 2, 0, 0, 0, 6, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0];
-
-var difficultSolved = [5, 8, 1, 6, 7, 2, 4, 3, 9, 7, 9, 2, 8, 4, 3, 6, 5, 1, 3, 6, 4, 5, 9, 1, 7, 8, 2, 4, 3, 8, 9, 5, 7, 2, 1, 6, 2, 5, 6, 1, 8, 4, 9, 7, 3, 1, 7, 9, 3, 2, 6, 8, 4, 5, 8, 4, 5, 2, 1, 9, 3, 6, 7, 9, 1, 3, 7, 6, 8, 5, 2, 4, 6, 2, 7, 4, 3, 5, 1, 9, 8];
-
-var levelsArr=[easy,intermediate,difficult];
-var levelSol=[easySolved, intermediateSolved, difficultSolved];
-
-    // to make the inputs grid
-    var container=$('#input-container');
-    for(var i=0; i<81;i++){
-        if(i%9 === 0){
-            container.append('<br>');
-        }
-        container.append('<input id="'+ i +'" class="form-control inputSquares" maxlength="1" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57">');
-
-    }
-    //to fill dump data
-    function fillSol(){
-    var inputArr=$('#input-container input');
-    for(var i=0; i<81;i++){
-        inputArr[i].value=easySolved[i];
-        }
-    }
-
-    //to parse inputs values when a button clicked
-    function parseInput(){
-        var inputArr=$('#input-container input');
-        var tempArr=[];
-        var resultArr=[];
-        for(var i=0; i<inputArr.length; i++){
-            if(inputArr[i].value === ""){
-                tempArr.push(0);
-            } else {
-            tempArr.push(parseInt(inputArr[i].value));
-            }
-            if(tempArr.length === 9){
-                resultArr.push(tempArr);
-                tempArr=[];
-            }
-        }
-        if(sudokuValidator(resultArr)){
-            $('#playing').slideToggle();
-            $('#finish').slideToggle();
-        }
-    }
-
-    var name="Legend";
-    var level=1;
-
-    function level2(){
-        level=2;
-    }
-
-    function level3(){
-        level=3;
-    }
-
-    function startGame(){
-        if($('#nameInput')[0].value !== ""){
-            name = $('#nameInput')[0].value;
-        }
-        fillEx();
-        $('#nameTitle').text(name+"! ");
-        $('#nameTitle2').text(name+"! ");
-        $('#levelLabel').text(level);
-        $('#welcome').slideToggle();
-        $('#playing').slideToggle();
-    }
-
-    function fillEx(){
-    var inputArr=$('#input-container input');
-    for(var i=0; i<81;i++){
-        if(levelsArr[level-1][i] !== 0){
-            inputArr[i].value=levelsArr[level-1][i];
-            $(inputArr[i]).attr("disabled", "true");
-        }
-        }
-    }
-</script>
-
+<script type="text/javascript" src="sudoku.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
    
